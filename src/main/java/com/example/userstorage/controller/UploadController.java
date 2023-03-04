@@ -24,6 +24,15 @@ public class UploadController {
    @Value("${aws.s3.bucketName}")
     private String bucketName;
 
+    public void setBucketName(String bucketName) {
+        this.bucketName = bucketName;
+    }
+
+    @Autowired
+    public void setS3Client(AmazonS3 s3Client) {
+       this.s3Client = s3Client;
+    }
+
    @PostMapping("/uploadFile")
    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file, @RequestParam String userName) {
        try {

@@ -27,6 +27,9 @@ public class DownloadController {
    private AmazonS3 s3Client;
    @Autowired
    private StorageService service;
+   public void setService(StorageService service) {
+      this.service = service;
+   }
 
    
 
